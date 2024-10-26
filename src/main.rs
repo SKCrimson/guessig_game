@@ -1,13 +1,11 @@
-extern crate rand;
-
 use std::io;
-use std::cmp::Ordering;
 use rand::Rng;
+use std::cmp::Ordering;
 
 fn main() {
     println!("Uhodni cislo!");
 
-    let secret_number = rand::thread_rng().gen_range(1, 101);
+    let secret_number = rand::thread_rng().gen_range(1..=100);
 
     loop {
         println!("Zadejte cele cislo, prosim.");
