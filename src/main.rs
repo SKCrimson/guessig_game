@@ -1,18 +1,20 @@
-use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
+use std::io;
 
 fn main() {
     println!("Uhodni cislo!");
 
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let secret_number = rand::rng().random_range(1..=100);
 
     loop {
         println!("Zadejte cele cislo, prosim.");
         println!();
 
         let mut guess = String::new();
-        io::stdin().read_line(&mut guess).expect("Nepodarilo se precist cislo.");
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Nepodarilo se precist cislo.");
 
         if guess.trim() == "quit" {
             println!("Zamyslene cislo: {}", secret_number);
